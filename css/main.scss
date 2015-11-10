@@ -1,0 +1,117 @@
+//MIXINS
+
+@mixin border_radius($radius: 10px) {
+	border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+}
+@mixin gradient_top_bottom($color_top: #ffffff, $color_bottom: #000000) {
+	background: $color_top !important;
+	background: -moz-linear-gradient(top, $color_top 0%, $color_bottom 100%) !important;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$color_top), color-stop(100%,$color_bottom)) !important;
+	background: -webkit-linear-gradient(top, $color_top 0%,$color_bottom 100%) !important;
+	background: -o-linear-gradient(top, $color_top 0%,$color_bottom 100%) !important;
+	background: -ms-linear-gradient(top, $color_top 0%,$color_bottom 100%) !important;
+	background: linear-gradient(to bottom, $color_top 0%,$color_bottom 100%) !important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$color_top, endColorstr=$color_bottom,GradientType=0 ) !important;
+}
+@mixin anim_transicion_ease( $segundos: 0.3s ){
+	transition: all $segundos ease;
+	-ms-transition: all $segundos ease;
+	-webkit-transition: all $segundos ease;
+	-o-transition: all $segundos ease;
+	-moz-transition: all $segundos ease;
+}
+@mixin rotate( $degrees: 45deg ){
+	-ms-transform: rotate($degrees); 
+    -webkit-transform: rotate($degrees); 
+    transform: rotate($degrees);
+}
+
+$lblue: #00bdf2;
+$dblue:#004785;
+$blue:#05589d;
+// QUICK RESET
+
+*{
+	margin: 0;
+	padding:0;
+	font-family: Helvetica, Arial, Sans-serif;
+	line-height: 100%;
+	color:#666;
+}
+
+body{
+	@include gradient_top_bottom($lblue, $dblue);
+}
+.main{
+	width: 50%;
+	margin: auto;
+	.logo{
+		height: 20%;
+		background:url(../images/logo.png) no-repeat center center;
+		background-size:50%;
+	}
+	label{
+		position: relative;
+		width: 100%;
+		display: block;
+		border:1px solid #ccc;
+		background:white;
+		margin-bottom: 20px;
+		padding:10px;
+		@include border-radius(4px);
+		p, h2{
+			display: inline-block;
+			vertical-align: middle;
+			font-size: 1em;
+			margin: 0;
+			font-weight: bold;
+		}
+		h2{
+			margin-left: 20px;
+			font-size: 1.4em;
+			color:$lblue;
+		}
+		&.select-wrapper{
+		    overflow: hidden;
+		    padding:0;
+		    background:url(../images/arrow.png) no-repeat 98% center, white;
+		    background-size:20px;
+			select{
+				padding: 12px 10px;
+			    width: 105%;
+			    border: none;
+			    box-shadow: none;
+			    background-color: transparent;
+			    background-image: none;
+			    -webkit-appearance: none;
+			    -moz-appearance: none;
+				appearance: none;
+				&:focus{
+					outline: none;
+				}
+			}
+		}
+	}
+}
+button{
+	width: 100%;
+	margin: 0 0 20px !important; 
+	border:none;
+	padding:16px 0;
+	color:white !important;
+	@include border_radius(4px);
+	&:focus{
+		outline: none;
+	}
+	&.btn-blue{
+		background:$blue;
+	}
+}
+
+@media only screen and (max-width: 640px){
+	.main{
+		width: 90%;
+	}
+}
