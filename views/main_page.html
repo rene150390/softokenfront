@@ -1,0 +1,27 @@
+<html>
+	<head></head>
+	<body>
+		<div ng-controller="vascodemo">
+			<br>
+			<select name="mySelect" id="mySelect" 
+      			ng-options="option.user_name for option in listaUsuarios track by option.user_name"
+      			ng-model="data.selectedOption">
+      		</select>
+      		<br/>
+      		<br />
+				<label align="center">Challenge: </label> <h2> {{ challenge }} </h2>
+				
+				<button ng-click="genChal()" class="btn btn-default">
+  					Generar challenge
+				</button>
+
+				<label align="center">Verify pwd: </label> <h2> {{ challenge }} </h2>
+
+				<button ng-click="genChal()" class="btn btn-default">
+  					Generar challenge
+				</button>
+
+				<label align="center">Verify pwd: </label> <h2> {{ challenge }} </h2>
+		</div>
+	</body>
+</html>
