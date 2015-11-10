@@ -6,19 +6,16 @@
       		ng-model="data.selectedOption">
       	</select>
 	</label>
-	<label>
-		<p>Challenge:</p>
-		<h2> {{ challenge }} </h2>
-	</label>
 	<button ng-click="genChal()" class="btn-blue">Generar challenge</button>
 	<label>
-		<p>Verify pwd:</p>
+		<p>Challenge generado: </p>
 		<h2> {{ challenge }} </h2>
 	</label>
-	<button ng-click="genChal()" class="btn-blue">Generar challenge</button>
+	<button ng-click="verifyPwd(data.selectedOption.serial_number, data.selectedOption.seq_num, 'APP 2 CR', challenge)" class="btn-blue">Verificar OTP</button>
 	<label>
-		<p>Verify pwd:</p>
-		<h2> {{ challenge }} </h2>
+		<p>OTP:  </p>
+		<input type="text" ng-model="pwd"/>
+		<h2> {{verify}} </h2>
 	</label>
 </div>
 
