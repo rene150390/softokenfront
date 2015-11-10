@@ -17,8 +17,11 @@
 
 				<label align="center">Verify pwd: </label> <h2> {{ challenge }} </h2>
 
-				<button ng-click="genChal()" class="btn btn-default">
-  					Generar challenge
+				OTP <input type="text" ng-model="pwd" />
+				<input type="hidden" ng-model="challenge" />
+				
+				<button ng-click="verifyPwd()" class="btn btn-default">
+  					Verificar OTP
 				</button>
 
 				<label align="center">Verify pwd: </label> <h2> {{ challenge }} </h2>

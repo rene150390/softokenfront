@@ -8,6 +8,7 @@
     $http.post(url + "/getAllUsers")
         .success(function(response) {
           $scope.listaUsuarios = response.listaUsuarios;
+          
           //console.log($scope.devices);
           //localStorage.setItem("name", '');
         
